@@ -1,0 +1,138 @@
+:root{
+  --bg: #0f172a;            /* slate-900 */
+  --panel: #111827;         /* gray-900 */
+  --muted: #94a3b8;         /* slate-400 */
+  --text: #e5e7eb;          /* gray-200 */
+  --brand: #6366f1;         /* indigo-500 */
+  --brand-2: #22d3ee;       /* cyan-400 */
+  --ok: #10b981;            /* emerald-500 */
+  --err: #ef4444;           /* red-500 */
+  --border: #1f2937;        /* gray-800 */
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --radius: 18px;
+}
+
+*{ box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(99,102,241,.15), transparent 60%),
+    radial-gradient(900px 500px at 120% 10%, rgba(34,211,238,.12), transparent 55%),
+    var(--bg);
+  color: var(--text);
+}
+
+.container {
+  max-width: 880px;
+  margin: 6rem auto;
+  padding: 0 1.25rem;
+}
+
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+}
+
+.header {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.brand {
+  display: flex; align-items: center; gap: .75rem;
+}
+.badge {
+  font-size: .8rem; color: #111;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  padding: .25rem .6rem; border-radius: 999px; font-weight: 700;
+}
+h1, h2 { margin: 0; font-weight: 800; letter-spacing: .2px; }
+h1 { font-size: clamp(1.8rem, 2.2vw + 1rem, 2.6rem); }
+h2 { font-size: clamp(1.3rem, 1.2vw + .9rem, 1.8rem); }
+
+.nav {
+  display: flex; gap: .85rem; align-items: center; flex-wrap: wrap;
+}
+.nav a{
+  text-decoration: none;
+  color: var(--text);
+  padding: .5rem .9rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: transform .08s ease, background .15s ease, border-color .2s ease;
+  background: rgba(255,255,255,.02);
+}
+.nav a:hover { transform: translateY(-1px); background: rgba(255,255,255,.04); border-color: #2b3443; }
+.nav a.active { border-color: var(--brand); box-shadow: 0 0 0 2px rgba(99,102,241,.25) inset; }
+
+.lead { color: var(--muted); margin-top: .5rem; }
+
+form { display: grid; gap: .9rem; margin-top: 1rem; }
+label { font-weight: 600; color: #cbd5e1; }
+input {
+  width: 100%;
+  padding: .9rem .95rem;
+  color: var(--text);
+  background: #0b1222;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+}
+input:focus { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(99,102,241,.2); }
+
+button {
+  cursor: pointer;
+  border: 0;
+  padding: .85rem 1.1rem;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color: #0b1020;
+  font-weight: 800;
+  border-radius: 12px;
+  transition: transform .06s ease, filter .15s ease;
+}
+button:hover { transform: translateY(-1px); filter: brightness(1.04); }
+button.secondary {
+  background: #0b1222; color: var(--text); border: 1px solid var(--border);
+}
+button.linkish{
+  background: transparent; border: 1px solid var(--border); color: var(--text);
+}
+
+.row { display: flex; gap: .6rem; flex-wrap: wrap; }
+.stack { display: grid; gap: .65rem; }
+
+.error { color: var(--err); margin-top: .25rem; }
+
+#add-task { margin: 1rem 0 1.25rem; display: grid; grid-template-columns: 1fr 1fr auto; gap: .6rem; }
+@media (max-width: 720px){ #add-task { grid-template-columns: 1fr; } }
+
+#task-list { list-style: none; padding: 0; margin: .25rem 0 0; display: grid; gap: .6rem; }
+#task-list li {
+  display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: .5rem;
+  padding: .8rem .9rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(255,255,255,.02);
+}
+#task-list .task-title{ font-weight: 600; color: #e2e8f0; }
+
+kbd {
+  padding: .15rem .45rem; border-radius: 6px;
+  background: #0b1222; border: 1px solid var(--border); color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: .85rem;
+}
+.footer-note { color: var(--muted); font-size: .9rem; margin-top: 1rem; }
+.edit-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto auto;
+  gap: .6rem;
+  margin-top: .4rem;
+}
+@media (max-width: 720px){
+  .edit-wrap { grid-template-columns: 1fr; }
+}

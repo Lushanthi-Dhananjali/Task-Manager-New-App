@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Register · Task Manager</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="header">
+        <div class="brand">
+          <span class="badge">TM</span>
+          <h2>Register</h2>
+        </div>
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="login.html">Login</a>
+          <a class="active" href="register.html">Register</a>
+          <a href="tasks.html">Tasks</a>
+        </nav>
+      </div>
+
+      <form id="register-form">
+        <div class="stack">
+          <label for="reg-username">Username</label>
+          <input id="reg-username" name="username" required />
+        </div>
+        <div class="stack">
+          <label for="reg-password">Password</label>
+          <input id="reg-password" name="password" type="password" required />
+        </div>
+        <div class="row">
+          <button id="btn-register" type="submit">Create Account</button>
+          <a class="linkish" href="login.html"><button type="button" class="secondary">I have an account</button></a>
+        </div>
+      </form>
+      <p id="register-error" class="error"></p>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>

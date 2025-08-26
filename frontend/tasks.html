@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Tasks · Task Manager</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="header">
+        <div class="brand">
+          <span class="badge">TM</span>
+          <h2>Your Tasks</h2>
+        </div>
+        <div class="nav">
+          <button id="btn-logout" class="secondary">Logout</button>
+        </div>
+      </div>
+
+      <section id="add-task">
+        <input id="task-title" placeholder="Task title" />
+        <input id="task-desc" placeholder="Description (optional)" />
+        <button id="btn-add" data-test="add-task">Add Task</button>
+      </section>
+      <p id="add-error" class="error"></p>
+
+      <ul id="task-list"></ul>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/tasks.js"></script>
+  <script>
+    // small UX nicety: focus title with 'T'
+    window.addEventListener('keydown', (e) => {
+      if (e.key.toLowerCase() === 't' && document.activeElement.tagName !== 'INPUT') {
+        const el = document.getElementById('task-title');
+        el?.focus();
+      }
+    });
+  </script>
+</body>
+</html>
